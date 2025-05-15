@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/6dd9318a-732c-4d39-80c2-bc5b7a500a5b)1.Tên dự án: Quản lý thư viện
+1.Tên dự án: Quản lý thư viện
 2.Công nghệ sử dụng:
   - Ngôn ngữ: C#, winforms
   - Cơ sở dữ liệu: SQL server
