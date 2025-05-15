@@ -18,4 +18,18 @@
 5.Giao diện
   - Đăng nhập:
      ![Giao diện đăng nhập](images/login.jpg.png)
+  - Trang chủ:
+     ![Giao diện trang chủ](images/home.jpg.png)
+  - Đăng kí thành viên:
+     ![Giao diện đăng kí thành viên](images/dangkithanhvien.jpg.png)
+  - Cấp thẻ độc giả:
+     ![Giao diện cấp thẻ độc giả](images/capthedocgia.jpg.png)
+  - Quản lý sách:
+     ![Giao diện quản lý sách](images/quanlysach.png)
+  - Quản lý mượn sách:
+     ![Giao diện quản lý mượn sách](images/quanlymuonsach.png)
+  - Quản lý trả sách:
+     ![Giao diện trả sách](images/trasach.png)
+  - Thống kê:
+     ![Giao diện thống kê](images/thongke.jpg.png)
     
