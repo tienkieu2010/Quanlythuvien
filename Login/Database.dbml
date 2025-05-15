@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="qlthuvien" Class="DatabaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-LRS7A72\SQLEXPRESS;Initial Catalog=qlthuvien;Integrated Security=True" SettingsObjectName="Login.Properties.Settings" SettingsPropertyName="qlthuvienConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Theloaisach" Member="Theloaisaches">
+    <Type Name="Theloaisach">
+      <Column Name="Matheloai" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tentheloai" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="Theloaisach_Sach_Theloaisach" Member="Sach_Theloaisaches" ThisKey="Matheloai" OtherKey="Matheloai" Type="Sach_Theloaisach" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Phieumuonsach" Member="Phieumuonsaches">
+    <Type Name="Phieumuonsach">
+      <Column Name="Maphieumuon" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Ngaymuon" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Ngayhethan" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Ngaytra" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Trangthai" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Mathedocgia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Maphieuphat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Phieumuonsach_Phieumuonsach_sach" Member="Phieumuonsach_saches" ThisKey="Maphieumuon" OtherKey="Maphieumuon" Type="Phieumuonsach_sach" />
+      <Association Name="Phieuphat_Phieumuonsach" Member="Phieuphat" ThisKey="Maphieuphat" OtherKey="Maphieuphat" Type="Phieuphat" IsForeignKey="true" />
+      <Association Name="Thedocgia_Phieumuonsach" Member="Thedocgia" ThisKey="Mathedocgia" OtherKey="Mathedocgia" Type="Thedocgia" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Phieuphat" Member="Phieuphats">
+    <Type Name="Phieuphat">
+      <Column Name="Maphieuphat" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Sotienphat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ghichu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="Phieuphat_Phieumuonsach" Member="Phieumuonsaches" ThisKey="Maphieuphat" OtherKey="Maphieuphat" Type="Phieumuonsach" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sach_Theloaisach" Member="Sach_Theloaisaches">
+    <Type Name="Sach_Theloaisach">
+      <Column Name="Masach" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Matheloai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ids_tl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Theloaisach_Sach_Theloaisach" Member="Theloaisach" ThisKey="Matheloai" OtherKey="Matheloai" Type="Theloaisach" IsForeignKey="true" />
+      <Association Name="Sach_Sach_Theloaisach" Member="Sach" ThisKey="Masach" OtherKey="Masach" Type="Sach" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Thedocgia" Member="Thedocgias">
+    <Type Name="Thedocgia">
+      <Column Name="Mathedocgia" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Ngaycap" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Ngayhethan" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Madocgia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Thedocgia_Phieumuonsach" Member="Phieumuonsaches" ThisKey="Mathedocgia" OtherKey="Mathedocgia" Type="Phieumuonsach" />
+      <Association Name="Docgia_Thedocgia" Member="Docgia" ThisKey="Madocgia" OtherKey="Madocgia" Type="Docgia" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Docgia" Member="Docgias">
+    <Type Name="Docgia">
+      <Column Name="Madocgia" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tendocgia" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Namsinh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Sodienthoai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Gioitinh" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Association Name="Docgia_Thedocgia" Member="Thedocgias" ThisKey="Madocgia" OtherKey="Madocgia" Type="Thedocgia" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sach" Member="Saches">
+    <Type Name="Sach">
+      <Column Name="Masach" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tensach" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Nhaxuatban" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Giathue" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Namxuatban" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Soluong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Soluongconlai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Sach_Sach_Theloaisach" Member="Sach_Theloaisaches" ThisKey="Masach" OtherKey="Masach" Type="Sach_Theloaisach" />
+      <Association Name="Sach_Phieumuonsach_sach" Member="Phieumuonsach_saches" ThisKey="Masach" OtherKey="Masach" Type="Phieumuonsach_sach" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Phieumuonsach_sach" Member="Phieumuonsach_saches">
+    <Type Name="Phieumuonsach_sach">
+      <Column Name="Maphieumuon" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Masach" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Maphieumuonsach_sach" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Phieumuonsach_Phieumuonsach_sach" Member="Phieumuonsach" ThisKey="Maphieumuon" OtherKey="Maphieumuon" Type="Phieumuonsach" IsForeignKey="true" />
+      <Association Name="Sach_Phieumuonsach_sach" Member="Sach" ThisKey="Masach" OtherKey="Masach" Type="Sach" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Nhanvien" Member="Nhanviens">
+    <Type Name="Nhanvien">
+      <Column Name="Manhanvien" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tennhanvien" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Sdtnhanvien" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Taikhoan" Member="Taikhoans">
+    <Type Name="Taikhoan">
+      <Column Name="Tendangnhap" Type="System.String" DbType="VarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Matkhau" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Quyen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Manhanvien" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
