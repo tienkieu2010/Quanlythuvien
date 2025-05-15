@@ -17,5 +17,5 @@
   
 5.Giao diện
   - Đăng nhập:
-    (images/login.jpg.pgn)
+     ![Giao diện đăng nhập](images/login.jpg.png)
     
