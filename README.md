@@ -19,7 +19,7 @@
   - Đăng nhập:
      ![Giao diện đăng nhập](images/login.jpg.png)
   - Trang chủ:
-     ![Giao diện trang chủ](images/home.jpg.png)
+     ![Giao diện trang chủ](images/hom.jpg.png)
   - Đăng kí thành viên:
      ![Giao diện đăng kí thành viên](images/dangkithanhvien.jpg.png)
   - Cấp thẻ độc giả:
