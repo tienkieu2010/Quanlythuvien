@@ -29,7 +29,7 @@
   - Quản lý mượn sách:
      ![Giao diện quản lý mượn sách](images/quanlymuonsach.png)
   - Quản lý trả sách:
-     ![Giao diện trả sách](images/trasach.png)
+     ![Giao diện trả sách](images/trasach.jpg.png)
   - Thống kê:
      ![Giao diện thống kê](images/thongke.jpg.png)
     
